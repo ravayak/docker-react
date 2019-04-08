@@ -1,7 +1,7 @@
 # Dockerfile for dev environment
 FROM node:alpine
 WORKDIR '/app'
-COPY package.json .
+COPY package.json ./
 RUN npm install
 # Not necessary if we run docker-compose because volume 
 # mounts our current directory into the container

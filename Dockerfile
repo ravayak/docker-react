@@ -1,12 +1,13 @@
 # Node 
 FROM node:alpine as builder
 WORKDIR '/app'
-COPY package.json .
+COPY package.json ./
 RUN npm install
-COPY . .
+COPY ./ ./
 RUN npm run build
 # Nginx 
 FROM nginx
+EXPOSE 80
 # on veut copier le contenu du dossier build une fois
 # qu'il a été compilé pendant la première phase ci-dessus
 # (ce dossier se trouve donc dans /app/build) et le placer  
